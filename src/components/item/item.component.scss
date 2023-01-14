@@ -1,0 +1,30 @@
+.item-container {
+  width: 956px;
+  height: 138px;
+  padding: 20px 0;
+}
+
+.item-title-container {
+  width: 400px;
+  height: 100%;
+}
+
+.item-amount-container {
+  height: 100%;
+  width: 62px;
+}
+
+.item-price-container {
+  height: 100%;
+  width: 220px;
+}
+
+.original-price {
+  color: #b9b9b9;
+  text-decoration: line-through;
+}
+
+.trash-icon {
+  color: #d00511;
+  cursor: pointer;
+}
