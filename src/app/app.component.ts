@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IChangeAmount } from 'src/models/IChangeAmount';
 import { IITem } from 'src/models/IItem';
 
 @Component({
@@ -9,7 +10,8 @@ import { IITem } from 'src/models/IItem';
 export class AppComponent {
   items: IITem[] = [
     {
-      amount: 1,
+      id: 1,
+      amount: 0,
       product: {
         title: 'IPhone 14 Preto 128GB',
         price: {
@@ -24,7 +26,8 @@ export class AppComponent {
       }
     },
     {
-      amount: 2,
+      id: 2,
+      amount: 0,
       product: {
         title: 'Bateria Magsafe',
         price: {
@@ -39,7 +42,8 @@ export class AppComponent {
       }
     },
     {
-      amount: 1,
+      id: 3,
+      amount: 0,
       product: {
         title: 'Bateria Magsafe',
         price: {
@@ -54,4 +58,25 @@ export class AppComponent {
       }
     }
   ];
+
+  get totalItems(): number {
+    return this.items.filter((item) => item.amount > 0).length;
+  }
+
+  get totalPrice(): number {
+    let value = 0;
+    this.items.forEach((item) => {
+      value += item.amount * item.product.price.value;
+    });
+
+    return value;
+  }
+
+  ChangeAmount(data: IChangeAmount) {
+    const index = this.items.findIndex((item) => item.id === data.id);
+
+    if (index !== -1) {
+      this.items[index].amount = data.amount;
+    }
+  }
 }

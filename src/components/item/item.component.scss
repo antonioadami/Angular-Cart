@@ -1,6 +1,6 @@
 .item-container {
-  width: 956px;
-  height: 138px;
+  width: 996px;
+  height: 130px;
   padding: 20px 0;
 }
 
@@ -26,5 +26,10 @@
 
 .trash-icon {
   color: #d00511;
+  cursor: pointer;
+}
+
+.add-icon {
+  color: #58c22e;
   cursor: pointer;
 }

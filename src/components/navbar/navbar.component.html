@@ -2,7 +2,7 @@
   <h1>Angular Cart</h1>
 
   <div class="icons-container">
-    <div matBadge="3" class="cart-container">
+    <div [matBadge]="cartAmount" class="cart-container">
       <fa-icon class="cart-icon" [icon]="faCartShopping" size="2xl"></fa-icon>
     </div>
     <div class="user-container">
