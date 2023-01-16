@@ -14,59 +14,55 @@ export class AppComponent {
       amount: 0,
       product: {
         title: 'IPhone 14 Preto 128GB',
-        price: {
-          originalPrice: 4399,
-          discount: 20,
-          value: 3299.25
-        },
+        price: 3299.25,
         image: {
           url: '../../assets/imgs/iphone14.jpg',
           alt: 'IPhone 14 Preto'
         }
-      }
+      },
+      totalPrice: 3299.25
     },
     {
       id: 2,
       amount: 0,
       product: {
         title: 'Bateria Magsafe',
-        price: {
-          originalPrice: 169,
-          discount: 0,
-          value: 169
-        },
+        price: 169,
         image: {
           url: '../../assets/imgs/bateria_magsafe.jpg',
           alt: 'Bateria Magsafe'
         }
-      }
+      },
+      totalPrice: 169
     },
     {
       id: 3,
       amount: 0,
       product: {
         title: 'Bateria Magsafe',
-        price: {
-          originalPrice: 1529,
-          discount: 10,
-          value: 1376.1
-        },
+        price: 1376.1,
         image: {
           url: '../../assets/imgs/airpods.jpg',
           alt: 'Airpods'
         }
-      }
+      },
+      totalPrice: 1376.1
     }
   ];
 
   get totalItems(): number {
-    return this.items.filter((item) => item.amount > 0).length;
+    let total = 0;
+    this.items.forEach((item) => {
+      total += item.amount;
+    });
+
+    return total;
   }
 
   get totalPrice(): number {
     let value = 0;
     this.items.forEach((item) => {
-      value += item.amount * item.product.price.value;
+      value += item.amount * item.product.price;
     });
 
     return value;
@@ -77,6 +73,14 @@ export class AppComponent {
 
     if (index !== -1) {
       this.items[index].amount = data.amount;
+      if (data.amount > 0) {
+        this.items[index].totalPrice =
+          data.amount * this.items[index].product.price;
+      } else {
+        this.items[index].totalPrice = this.items[index].product.price;
+      }
+
+      console.log(this.items[index]);
     }
   }
 }

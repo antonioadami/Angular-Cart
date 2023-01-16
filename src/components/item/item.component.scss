@@ -19,11 +19,6 @@
   width: 220px;
 }
 
-.original-price {
-  color: #b9b9b9;
-  text-decoration: line-through;
-}
-
 .trash-icon {
   color: #d00511;
   cursor: pointer;
@@ -32,4 +27,10 @@
 .add-icon {
   color: #58c22e;
   cursor: pointer;
+}
+
+.amount-select {
+  mat-form-field {
+    width: 58px;
+  }
 }

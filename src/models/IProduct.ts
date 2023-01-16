@@ -4,9 +4,5 @@ export interface IProduct {
     url: string;
     alt: string;
   };
-  price: {
-    originalPrice: number;
-    discount: number;
-    value: number;
-  };
+  price: number;
 }

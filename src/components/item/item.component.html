@@ -5,11 +5,21 @@
     <span>{{item.product.title}}</span>
   </div>
   <div class="item-amount-container">
-    <span>{{item.amount}}</span>
+    <span *ngIf="item.amount === 0; else selectAmount">{{item.amount}}</span>
+    <ng-template #selectAmount>
+      <div class="amount-select">
+        <mat-form-field appearance="outline">
+          <mat-select   [(value)]="selectedAmount" (selectionChange)="AmountChanged(item.id, $event)">
+            <mat-option *ngFor="let amountItem of amountItems" [value]="amountItem">
+              {{amountItem}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </ng-template>
   </div>
   <div class="d-flex flex-column item-price-container">
-    <span v-if="item.product.price.discount !== 0" class="original-price">De {{item.product.price.originalPrice | currency}} por</span>
-    <span>{{item.product.price.value | currency}} </span>
+    <span>{{item.totalPrice | currency}} </span>
   </div>
 
   <div class="d-flex justify-content-center align-items-center">

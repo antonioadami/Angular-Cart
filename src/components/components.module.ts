@@ -8,10 +8,19 @@ import { ItemComponent } from './item/item.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [ItemComponent, ItemImageComponent, NavbarComponent],
-  imports: [BrowserModule, CommonModule, FontAwesomeModule, MatBadgeModule],
+  imports: [
+    BrowserModule,
+    CommonModule,
+    FontAwesomeModule,
+    MatBadgeModule,
+    MatFormFieldModule,
+    MatSelectModule
+  ],
   exports: [ItemComponent, NavbarComponent]
 })
 export class ComponentsModule {}
