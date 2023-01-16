@@ -23,9 +23,9 @@
   </div>
 
   <div class="d-flex justify-content-center align-items-center">
-    <fa-icon *ngIf="item.amount > 0; else addIcon" class="trash-icon" [icon]="faTrash" size="lg" (click)="RemoveItem(item.id)"></fa-icon>
+    <fa-icon matTooltip="Remove from cart" matTooltipPosition="above" *ngIf="item.amount > 0; else addIcon" class="trash-icon" [icon]="faTrash" size="lg" (click)="RemoveItem(item.id)"></fa-icon>
     <ng-template #addIcon>
-      <fa-icon class="add-icon" [icon]="faPlus" size="lg" (click)="AddItem(item.id)"></fa-icon>
+      <fa-icon matTooltip="Add to cart" matTooltipPosition="above" class="add-icon" [icon]="faPlus" size="lg" (click)="AddItem(item.id)"></fa-icon>
     </ng-template>
   </div>
 </div>

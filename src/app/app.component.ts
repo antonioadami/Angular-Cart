@@ -79,8 +79,6 @@ export class AppComponent {
       } else {
         this.items[index].totalPrice = this.items[index].product.price;
       }
-
-      console.log(this.items[index]);
     }
   }
 }

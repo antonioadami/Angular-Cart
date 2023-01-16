@@ -10,6 +10,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [ItemComponent, ItemImageComponent, NavbarComponent],
@@ -19,7 +20,8 @@ import { MatSelectModule } from '@angular/material/select';
     FontAwesomeModule,
     MatBadgeModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTooltipModule
   ],
   exports: [ItemComponent, NavbarComponent]
 })
