@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { IChangeAmount } from 'src/models/IChangeAmount';
-import { IITem } from 'src/models/IItem';
+import { IChangeAmount } from 'src/app/models/IChangeAmount';
+import { IITem } from 'src/app/models/IItem';
 
 @Component({
   selector: 'app-root',

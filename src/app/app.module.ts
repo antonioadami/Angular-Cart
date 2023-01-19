@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import localePt from '@angular/common/locales/pt';
 import { DEFAULT_CURRENCY_CODE, LOCALE_ID } from '@angular/core';
-import { ComponentsModule } from 'src/components/components.module';
+import { ComponentsModule } from 'src/app/components/components.module';
 import { CommonModule, registerLocaleData } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
