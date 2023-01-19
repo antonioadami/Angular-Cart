@@ -8,6 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AppRoutingModule } from './app.routing.module';
+import { PagesModule } from './pages/pages.module';
 
 registerLocaleData(localePt);
 
@@ -16,9 +18,11 @@ registerLocaleData(localePt);
   imports: [
     BrowserModule,
     CommonModule,
-    ComponentsModule,
     BrowserAnimationsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    AppRoutingModule,
+    PagesModule,
+    ComponentsModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' },
