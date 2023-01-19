@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IChangeAmount } from 'src/app/models/IChangeAmount';
 import { IITem } from 'src/app/models/IItem';
+import { CartService } from './services/cart.service';
 
 @Component({
   selector: 'app-root',
@@ -49,6 +50,8 @@ export class AppComponent {
       totalPrice: 1376.1
     }
   ];
+
+  constructor(private cartService: CartService) {}
 
   get totalItems(): number {
     let total = 0;
