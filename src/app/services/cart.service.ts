@@ -9,6 +9,7 @@ export class CartService {
       id: 1,
       amount: 0,
       product: {
+        id: 1,
         title: 'IPhone 14 Preto 128GB',
         price: { value: 3299.25, discount: 0, originalValue: 3299.25 },
         image: {
@@ -22,6 +23,7 @@ export class CartService {
       id: 2,
       amount: 0,
       product: {
+        id: 2,
         title: 'Bateria Magsafe',
         price: { value: 169, discount: 0, originalValue: 169 },
         image: {
@@ -35,6 +37,7 @@ export class CartService {
       id: 3,
       amount: 0,
       product: {
+        id: 3,
         title: 'Airpods',
         price: { value: 1376.1, discount: 0, originalValue: 1376.1 },
         image: {

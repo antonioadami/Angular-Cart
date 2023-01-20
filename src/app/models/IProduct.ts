@@ -1,4 +1,5 @@
 export interface IProduct {
+  id: number;
   title: string;
   image: {
     url: string;

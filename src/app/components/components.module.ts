@@ -6,20 +6,26 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ItemImageComponent } from './item-image/item-image.component';
 import { ItemComponent } from './item/item.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { CarouselComponent } from './carousel/carousel.component';
+import { ProductListComponent } from './product-list/product-list.component';
 
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { CarouselComponent } from './carousel/carousel.component';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { ProductComponent } from './product/product.component';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
     ItemComponent,
     ItemImageComponent,
     NavbarComponent,
-    CarouselComponent
+    CarouselComponent,
+    ProductListComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
@@ -29,8 +35,15 @@ import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
     MatFormFieldModule,
     MatSelectModule,
     MatTooltipModule,
-    NgbCarouselModule
+    MatGridListModule,
+    NgbCarouselModule,
+    MatButtonModule
   ],
-  exports: [ItemComponent, NavbarComponent, CarouselComponent]
+  exports: [
+    ItemComponent,
+    NavbarComponent,
+    CarouselComponent,
+    ProductListComponent
+  ]
 })
 export class ComponentsModule {}
