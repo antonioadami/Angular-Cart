@@ -19,6 +19,7 @@ import { ProductComponent } from './product/product.component';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
 import { DetailsImageComponent } from './details-image/details-image.component';
+import { DetailsInfosComponent } from './details-infos/details-infos.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { DetailsImageComponent } from './details-image/details-image.component';
     CarouselComponent,
     ProductListComponent,
     ProductComponent,
-    DetailsImageComponent
+    DetailsImageComponent,
+    DetailsInfosComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +50,8 @@ import { DetailsImageComponent } from './details-image/details-image.component';
     NavbarComponent,
     CarouselComponent,
     ProductListComponent,
-    DetailsImageComponent
+    DetailsImageComponent,
+    DetailsInfosComponent
   ]
 })
 export class ComponentsModule {}

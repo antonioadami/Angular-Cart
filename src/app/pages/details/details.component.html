@@ -1,1 +1,5 @@
-<app-details-image [url]="product.image.url" [alt]="product.image.alt" ></app-details-image>
+<div class="d-flex justify-content-between">
+  <app-details-image [url]="product.image.url" [alt]="product.image.alt" ></app-details-image>
+  <app-details-infos [product]="product" ></app-details-infos>
+</div>
+

@@ -1,0 +1,10 @@
+<div class="infos-container">
+  <span class="title">{{product.title}}</span>
+  <span class="discount" *ngIf="product.price.discount > 0">{{product.price.discount}}% OFF</span>
+  <span class="original-value" *ngIf="product.price.discount > 0">{{product.price.originalValue | currency}}</span>
+  <span class="value">{{product.price.value | currency}}</span>
+
+  <div class="button-container">
+    <button [routerLink]="'cart'" mat-flat-button>Add to cart</button>
+  </div>
+</div>
