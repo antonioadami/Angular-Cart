@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { IChangeAmount } from '../models/IChangeAmount';
+import { IDiscount } from '../models/IDiscount';
 import { IITem } from '../models/IItem';
 
 @Injectable({ providedIn: 'root' })
 export class CartService {
   private cartItems: IITem[] = [];
+  private discount: IDiscount = { percentage: 0, price: 0, value: 0 };
 
   public getCartItems(): IITem[] {
     return this.cartItems;
@@ -24,6 +26,7 @@ export class CartService {
       this.cartItems.push(item);
     }
 
+    this.calculateDiscount();
     return this.cartItems;
   }
 
@@ -43,11 +46,13 @@ export class CartService {
           this.cartItems[index].product.price.value;
       }
     }
+    this.calculateDiscount();
     return this.cartItems;
   }
 
   public removeItem(id: number): IITem[] {
     this.cartItems = this.cartItems.filter((item) => item.product.id !== id);
+    this.calculateDiscount();
     return this.cartItems;
   }
 
@@ -67,5 +72,23 @@ export class CartService {
     });
 
     return value;
+  }
+
+  public getDiscount(): IDiscount {
+    return this.discount;
+  }
+
+  public setDiscount(value: number): IDiscount {
+    if (value > 0 && value <= 100) {
+      this.discount.percentage = value;
+      this.calculateDiscount();
+    }
+    return this.discount;
+  }
+
+  private calculateDiscount(): void {
+    this.discount.value =
+      this.getTotalPrice() * (this.discount.percentage / 100);
+    this.discount.price = this.getTotalPrice() - this.discount.value;
   }
 }

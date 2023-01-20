@@ -15,4 +15,13 @@
   display: flex;
   justify-content: space-between;
   font-size: 12px;
+
+  h5 {
+    font-size: 16px;
+    font-weight: 500;
+  }
+}
+
+.divider {
+  margin: 12px 0;
 }

@@ -3,7 +3,7 @@
     <app-card-form></app-card-form>
   </div>
   <div class="right-container">
-    <app-summary></app-summary>
-    <app-coupon></app-coupon>
+    <app-summary #summary></app-summary>
+    <app-coupon [summary]="summary"></app-coupon>
   </div>
 </div>

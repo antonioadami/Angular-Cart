@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgxMaskModule } from 'ngx-mask';
 
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -14,6 +15,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
 
 import { ItemImageComponent } from './item-image/item-image.component';
 import { ItemComponent } from './item/item.component';
@@ -25,10 +27,8 @@ import { DetailsImageComponent } from './details-image/details-image.component';
 import { DetailsInfosComponent } from './details-infos/details-infos.component';
 import { AddCartButtonComponent } from './add-cart-button/add-cart-button.component';
 import { CardFormComponent } from './card-form/card-form.component';
-import { NgxMaskModule } from 'ngx-mask';
 import { SummaryComponent } from './summary/summary.component';
 import { CouponComponent } from './coupon/coupon.component';
-
 @NgModule({
   declarations: [
     ItemComponent,
@@ -57,6 +57,7 @@ import { CouponComponent } from './coupon/coupon.component';
     MatGridListModule,
     NgbCarouselModule,
     MatButtonModule,
+    MatDividerModule,
     ReactiveFormsModule,
     FormsModule,
     NgxMaskModule.forRoot()

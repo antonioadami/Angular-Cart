@@ -4,4 +4,15 @@
     <span>Items ({{totalItems}}): </span>
     <span>{{totalPrice | currency}}</span>
   </div>
+  <div class="summary-row">
+    <span>Discount ({{discount.percentage}}%): </span>
+    <span>{{discount.value | currency}} </span>
+  </div>
+
+  <mat-divider class="divider"></mat-divider>
+
+  <div class="summary-row">
+    <h5>Total: </h5>
+    <span>{{discount.price | currency}} </span>
+  </div>
 </div>
