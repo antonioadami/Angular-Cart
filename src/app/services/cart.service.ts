@@ -11,7 +11,19 @@ export class CartService {
   }
 
   public addItem(item: IITem): IITem[] {
-    this.cartItems.push(item);
+    const index = this.cartItems.findIndex(
+      (i) => i.product.id === item.product.id
+    );
+
+    if (index !== -1) {
+      this.changeAmount({
+        id: item.product.id,
+        amount: this.cartItems[index].amount + item.amount
+      });
+    } else {
+      this.cartItems.push(item);
+    }
+
     return this.cartItems;
   }
 
@@ -39,7 +51,7 @@ export class CartService {
     return this.cartItems;
   }
 
-  getTotalItems(): number {
+  public getTotalItems(): number {
     let total = 0;
     this.cartItems.forEach((item) => {
       total += item.amount;
@@ -48,7 +60,7 @@ export class CartService {
     return total;
   }
 
-  getTotalPrice(): number {
+  public getTotalPrice(): number {
     let value = 0;
     this.cartItems.forEach((item) => {
       value += item.amount * item.product.price.value;

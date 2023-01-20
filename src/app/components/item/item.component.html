@@ -9,7 +9,7 @@
     <ng-template #selectAmount>
       <div class="amount-select">
         <mat-form-field appearance="outline">
-          <mat-select   [(value)]="selectedAmount" (selectionChange)="AmountChanged(item.product.id, $event)">
+          <mat-select   [(value)]="item.amount" (selectionChange)="AmountChanged(item.product.id, $event)">
             <mat-option *ngFor="let amountItem of amountItems" [value]="amountItem">
               {{amountItem}}
             </mat-option>

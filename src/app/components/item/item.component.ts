@@ -17,7 +17,6 @@ export class ItemComponent {
   faPlus = faPlus;
 
   amountItems = [...Array(13).keys()].filter((amount) => amount !== 0);
-  selectedAmount = 1;
 
   AddItem(id: number) {
     this.changeAmount.emit({ id, amount: 1 });
@@ -29,6 +28,6 @@ export class ItemComponent {
 
   AmountChanged(id: number, event: MatSelectChange) {
     this.changeAmount.emit({ id, amount: event.value });
-    this.selectedAmount = 1;
+    this.item.totalPrice = event.value * this.item.product.price.value;
   }
 }
