@@ -8,7 +8,7 @@ import { ProductsService } from 'src/app/services/products.service';
   styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent implements OnInit {
-  product: IProduct | undefined;
+  product: IProduct;
 
   constructor(
     private route: ActivatedRoute,
@@ -22,6 +22,10 @@ export class DetailsComponent implements OnInit {
       return;
     }
 
-    this.product = this.productsService.getProductById(parseInt(id));
+    const product = this.productsService.getProductById(parseInt(id));
+
+    if (product) {
+      this.product = product;
+    }
   }
 }

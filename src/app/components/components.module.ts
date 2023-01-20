@@ -18,6 +18,7 @@ import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductComponent } from './product/product.component';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
+import { DetailsImageComponent } from './details-image/details-image.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { RouterModule } from '@angular/router';
     NavbarComponent,
     CarouselComponent,
     ProductListComponent,
-    ProductComponent
+    ProductComponent,
+    DetailsImageComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,8 @@ import { RouterModule } from '@angular/router';
     ItemComponent,
     NavbarComponent,
     CarouselComponent,
-    ProductListComponent
+    ProductListComponent,
+    DetailsImageComponent
   ]
 })
 export class ComponentsModule {}
