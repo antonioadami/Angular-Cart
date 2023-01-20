@@ -41,11 +41,24 @@
 
 .button-container {
   width: 100%;
-  margin-top: 40px;
 
   ::ng-deep .mdc-button{
     width: 100%;
     background-color: #0086ff;
     color: #fff;
+  }
+}
+
+.amount-select {
+  margin-top: 40px;
+
+  span {
+    font-size: 14px;
+    font-weight: 500;
+    margin-right: 8px;
+  }
+
+  mat-form-field {
+    width: 58px;
   }
 }

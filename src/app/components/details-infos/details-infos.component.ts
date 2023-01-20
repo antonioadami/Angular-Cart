@@ -8,4 +8,7 @@ import { IProduct } from 'src/app/models/IProduct';
 })
 export class DetailsInfosComponent {
   @Input() product: IProduct;
+
+  selectedAmount = 1;
+  amountItems = [...Array(13).keys()].filter((amount) => amount !== 0);
 }
