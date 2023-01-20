@@ -10,7 +10,7 @@ export class CartService {
       amount: 0,
       product: {
         title: 'IPhone 14 Preto 128GB',
-        price: 3299.25,
+        price: { value: 3299.25, discount: 0, originalValue: 3299.25 },
         image: {
           url: '../../assets/imgs/iphone14.jpg',
           alt: 'IPhone 14 Preto'
@@ -23,7 +23,7 @@ export class CartService {
       amount: 0,
       product: {
         title: 'Bateria Magsafe',
-        price: 169,
+        price: { value: 169, discount: 0, originalValue: 169 },
         image: {
           url: '../../assets/imgs/bateria_magsafe.jpg',
           alt: 'Bateria Magsafe'
@@ -35,8 +35,8 @@ export class CartService {
       id: 3,
       amount: 0,
       product: {
-        title: 'Bateria Magsafe',
-        price: 1376.1,
+        title: 'Airpods',
+        price: { value: 1376.1, discount: 0, originalValue: 1376.1 },
         image: {
           url: '../../assets/imgs/airpods.jpg',
           alt: 'Airpods'
@@ -63,9 +63,10 @@ export class CartService {
 
       if (data.amount > 0) {
         this.cartItems[index].totalPrice =
-          data.amount * this.cartItems[index].product.price;
+          data.amount * this.cartItems[index].product.price.value;
       } else {
-        this.cartItems[index].totalPrice = this.cartItems[index].product.price;
+        this.cartItems[index].totalPrice =
+          this.cartItems[index].product.price.value;
       }
     }
     return this.cartItems;
@@ -88,7 +89,7 @@ export class CartService {
   getTotalPrice(): number {
     let value = 0;
     this.cartItems.forEach((item) => {
-      value += item.amount * item.product.price;
+      value += item.amount * item.product.price.value;
     });
 
     return value;

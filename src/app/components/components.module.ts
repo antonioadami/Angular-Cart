@@ -11,9 +11,16 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { CarouselComponent } from './carousel/carousel.component';
+import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
-  declarations: [ItemComponent, ItemImageComponent, NavbarComponent],
+  declarations: [
+    ItemComponent,
+    ItemImageComponent,
+    NavbarComponent,
+    CarouselComponent
+  ],
   imports: [
     BrowserModule,
     CommonModule,
@@ -21,8 +28,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatBadgeModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatTooltipModule
+    MatTooltipModule,
+    NgbCarouselModule
   ],
-  exports: [ItemComponent, NavbarComponent]
+  exports: [ItemComponent, NavbarComponent, CarouselComponent]
 })
 export class ComponentsModule {}
