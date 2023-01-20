@@ -3,6 +3,7 @@ import { MatSelectChange } from '@angular/material/select';
 import { faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { IChangeAmount } from 'src/app/models/IChangeAmount';
 import { IITem } from 'src/app/models/IItem';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-item',
@@ -11,23 +12,22 @@ import { IITem } from 'src/app/models/IItem';
 })
 export class ItemComponent {
   @Input() item: IITem;
-  @Output() changeAmount = new EventEmitter<IChangeAmount>();
+  @Output() refreshItems = new EventEmitter<void>();
+
+  constructor(private cartService: CartService) {}
 
   faTrash = faTrash;
   faPlus = faPlus;
 
   amountItems = [...Array(13).keys()].filter((amount) => amount !== 0);
 
-  AddItem(id: number) {
-    this.changeAmount.emit({ id, amount: 1 });
-  }
-
-  RemoveItem(id: number) {
-    this.changeAmount.emit({ id, amount: 0 });
+  RemoveItem() {
+    this.cartService.removeItem(this.item.product.id);
+    this.refreshItems.emit();
   }
 
   AmountChanged(id: number, event: MatSelectChange) {
-    this.changeAmount.emit({ id, amount: event.value });
-    this.item.totalPrice = event.value * this.item.product.price.value;
+    this.cartService.changeAmount({ id, amount: event.value });
+    this.refreshItems.emit();
   }
 }

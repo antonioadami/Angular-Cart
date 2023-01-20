@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { IChangeAmount } from 'src/app/models/IChangeAmount';
 import { IITem } from 'src/app/models/IItem';
 import { CartService } from 'src/app/services/cart.service';
 
@@ -10,18 +9,21 @@ import { CartService } from 'src/app/services/cart.service';
 export class CartComponent implements OnInit {
   totalItems: number;
   totalPrice: number;
+  items: IITem[] = [];
 
   constructor(private cartService: CartService) {}
 
   ngOnInit(): void {
+    this.Init();
+  }
+
+  Init() {
     this.items = this.cartService.getCartItems();
     this.totalItems = this.cartService.getTotalItems();
     this.totalPrice = this.cartService.getTotalPrice();
   }
 
-  items: IITem[] = [];
-
-  ChangeAmount(data: IChangeAmount) {
-    this.items = this.cartService.changeAmount(data);
+  RefreshItems(): void {
+    this.Init();
   }
 }
