@@ -45,7 +45,7 @@ export class ProductsService {
       title: 'Samsung Galaxy A13 Preto, 128GB',
       price: { value: 1259.1, discount: 0, originalValue: 1259.1 },
       image: {
-        url: '../../assets/imgs/tv.jpg',
+        url: '../../assets/imgs/galaxy.jpg',
         alt: 'Samsung Galaxy A13 Preto'
       }
     },
@@ -111,6 +111,11 @@ export class ProductsService {
   public getProducts(): IProduct[] {
     return this.products;
   }
+
+  public getProductById(id: number): IProduct | undefined {
+    return this.products.find((product) => product.id === id);
+  }
+
   public getBannerProducts(): IProduct[] {
     return this.bannerProducts;
   }

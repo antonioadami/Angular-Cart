@@ -17,6 +17,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductComponent } from './product/product.component';
 import { MatButtonModule } from '@angular/material/button';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { MatButtonModule } from '@angular/material/button';
   imports: [
     BrowserModule,
     CommonModule,
+    RouterModule,
     FontAwesomeModule,
     MatBadgeModule,
     MatFormFieldModule,

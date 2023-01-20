@@ -1,4 +1,4 @@
-<div class="product-container">
+<div [routerLink]="['details']" [queryParams]="{id: product.id}" class="product-container">
   <div class="image-container">
     <img [src]="product.image.url" [alt]="product.image.alt">
   </div>
@@ -11,6 +11,6 @@
     </div>
   </div>
   <div class="button-container">
-    <button mat-flat-button>Add to cart</button>
+    <button [routerLink]="'cart'" mat-flat-button>Add to cart</button>
   </div>
 </div>
