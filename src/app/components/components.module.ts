@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -26,6 +26,8 @@ import { DetailsInfosComponent } from './details-infos/details-infos.component';
 import { AddCartButtonComponent } from './add-cart-button/add-cart-button.component';
 import { CardFormComponent } from './card-form/card-form.component';
 import { NgxMaskModule } from 'ngx-mask';
+import { SummaryComponent } from './summary/summary.component';
+import { CouponComponent } from './coupon/coupon.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { NgxMaskModule } from 'ngx-mask';
     DetailsImageComponent,
     DetailsInfosComponent,
     AddCartButtonComponent,
-    CardFormComponent
+    CardFormComponent,
+    SummaryComponent,
+    CouponComponent
   ],
   imports: [
     BrowserModule,
@@ -54,6 +58,7 @@ import { NgxMaskModule } from 'ngx-mask';
     NgbCarouselModule,
     MatButtonModule,
     ReactiveFormsModule,
+    FormsModule,
     NgxMaskModule.forRoot()
   ],
   exports: [
@@ -63,7 +68,9 @@ import { NgxMaskModule } from 'ngx-mask';
     ProductListComponent,
     DetailsImageComponent,
     DetailsInfosComponent,
-    CardFormComponent
+    CardFormComponent,
+    SummaryComponent,
+    CouponComponent
   ]
 })
 export class ComponentsModule {}

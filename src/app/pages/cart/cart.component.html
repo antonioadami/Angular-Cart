@@ -24,3 +24,7 @@
   <span class="total-text">Total ({{totalItems}} items):</span>
   <span class="total-price-text">{{totalPrice | currency}}</span>
 </div>
+
+<div class="submit-container" *ngIf="totalItems > 0">
+  <button [routerLink]="'/checkout'" mat-flat-button>Proceed to checkout</button>
+</div>

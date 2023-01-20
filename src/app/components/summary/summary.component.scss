@@ -1,0 +1,18 @@
+.summary-container {
+  width: 300px;
+  border: 1px solid #c1c1c1;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}

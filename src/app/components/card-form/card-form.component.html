@@ -1,9 +1,8 @@
+<div class="title">
+  <span>Add a credit or debit card</span>
+</div>
+
 <form [formGroup]="cardFormGroup" class="form">
-
-  <div class="title">
-    <span>Add a credit or debit card</span>
-  </div>
-
   <mat-form-field appearance="outline">
     <mat-label>Card Number</mat-label>
     <input matInput placeholder="xxxx xxxx xxxx xxxx" formControlName="number" mask="0000 0000 0000 0000">
