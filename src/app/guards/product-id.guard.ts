@@ -9,7 +9,7 @@ export class ProductIdGuard implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot): boolean {
     if (!route.queryParamMap.get('id')) {
-      this.router.navigate(['erro']);
+      this.router.navigate(['error']);
       return false;
     }
 

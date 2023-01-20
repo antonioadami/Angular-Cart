@@ -1,0 +1,35 @@
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+
+}
+
+.text-container {
+  width: 450px;
+
+
+  h1 {
+    font-size: 120px;
+    color: #0086ff;
+    font-weight: 700;
+
+    margin-bottom: 80px;
+  }
+
+  h2 {
+    font-size: 32px;
+    line-height: 40px;
+    margin-bottom: 32px;
+  }
+
+  span {
+    font-size: 18px;
+  }
+
+
+}
