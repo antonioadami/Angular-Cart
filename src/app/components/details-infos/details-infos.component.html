@@ -5,6 +5,6 @@
   <span class="value">{{product.price.value | currency}}</span>
 
   <div class="button-container">
-    <button [routerLink]="'cart'" mat-flat-button>Add to cart</button>
+    <app-add-cart-button [amount]="1" [productId]="product.id" ></app-add-cart-button>
   </div>
 </div>

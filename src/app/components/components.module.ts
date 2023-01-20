@@ -20,6 +20,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
 import { DetailsImageComponent } from './details-image/details-image.component';
 import { DetailsInfosComponent } from './details-infos/details-infos.component';
+import { AddCartButtonComponent } from './add-cart-button/add-cart-button.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { DetailsInfosComponent } from './details-infos/details-infos.component';
     ProductListComponent,
     ProductComponent,
     DetailsImageComponent,
-    DetailsInfosComponent
+    DetailsInfosComponent,
+    AddCartButtonComponent
   ],
   imports: [
     BrowserModule,

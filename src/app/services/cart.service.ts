@@ -4,50 +4,7 @@ import { IITem } from '../models/IItem';
 
 @Injectable({ providedIn: 'root' })
 export class CartService {
-  private cartItems: IITem[] = [
-    {
-      id: 1,
-      amount: 0,
-      product: {
-        id: 1,
-        title: 'IPhone 14 Preto 128GB',
-        price: { value: 3299.25, discount: 0, originalValue: 3299.25 },
-        image: {
-          url: '../../assets/imgs/iphone14.jpg',
-          alt: 'IPhone 14 Preto'
-        }
-      },
-      totalPrice: 3299.25
-    },
-    {
-      id: 2,
-      amount: 0,
-      product: {
-        id: 2,
-        title: 'Bateria Magsafe',
-        price: { value: 169, discount: 0, originalValue: 169 },
-        image: {
-          url: '../../assets/imgs/bateria_magsafe.jpg',
-          alt: 'Bateria Magsafe'
-        }
-      },
-      totalPrice: 169
-    },
-    {
-      id: 3,
-      amount: 0,
-      product: {
-        id: 3,
-        title: 'Airpods',
-        price: { value: 1376.1, discount: 0, originalValue: 1376.1 },
-        image: {
-          url: '../../assets/imgs/airpods.jpg',
-          alt: 'Airpods'
-        }
-      },
-      totalPrice: 1376.1
-    }
-  ];
+  private cartItems: IITem[] = [];
 
   public getCartItems(): IITem[] {
     return this.cartItems;
@@ -59,7 +16,9 @@ export class CartService {
   }
 
   public changeAmount(data: IChangeAmount): IITem[] {
-    const index = this.cartItems.findIndex((item) => item.id === data.id);
+    const index = this.cartItems.findIndex(
+      (item) => item.product.id === data.id
+    );
 
     if (index !== -1) {
       this.cartItems[index].amount = data.amount;
@@ -76,7 +35,7 @@ export class CartService {
   }
 
   public removeItem(id: number): IITem[] {
-    this.cartItems = this.cartItems.filter((item) => item.id !== id);
+    this.cartItems = this.cartItems.filter((item) => item.product.id !== id);
     return this.cartItems;
   }
 
