@@ -1,0 +1,28 @@
+<form [formGroup]="cardFormGroup" class="form">
+
+  <div class="title">
+    <span>Add a credit or debit card</span>
+  </div>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Card Number</mat-label>
+    <input matInput placeholder="xxxx xxxx xxxx xxxx" formControlName="number" mask="0000 0000 0000 0000">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Name on card</mat-label>
+    <input matInput formControlName="name">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Expiration date</mat-label>
+    <input matInput placeholder="xx/xx" formControlName="dueDate" mask="00/00">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>CVV</mat-label>
+    <input matInput placeholder="xxx" formControlName="cvv" mask="000">
+  </mat-form-field>
+
+  <div class="submit-container">
+    <button  mat-flat-button>Add to cart</button>
+  </div>
+
+</form>

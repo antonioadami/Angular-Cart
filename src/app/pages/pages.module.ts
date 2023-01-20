@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ComponentsModule } from '../components/components.module';
 import { CartComponent } from './cart/cart.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 import { DetailsComponent } from './details/details.component';
 import { ErrorComponent } from './error/error.component';
 import { HomeComponent } from './home/home.component';
@@ -12,7 +13,8 @@ import { HomeComponent } from './home/home.component';
     HomeComponent,
     CartComponent,
     DetailsComponent,
-    ErrorComponent
+    ErrorComponent,
+    CheckoutComponent
   ],
   imports: [BrowserModule, CommonModule, ComponentsModule],
   exports: []
