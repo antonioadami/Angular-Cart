@@ -30,6 +30,7 @@ import { CardFormComponent } from './card-form/card-form.component';
 import { SummaryComponent } from './summary/summary.component';
 import { CouponComponent } from './coupon/coupon.component';
 import { ConfirmationListComponent } from './confirmation-list/confirmation-list.component';
+import { LoginFormComponent } from './login-form/login-form.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { ConfirmationListComponent } from './confirmation-list/confirmation-list
     CardFormComponent,
     SummaryComponent,
     CouponComponent,
-    ConfirmationListComponent
+    ConfirmationListComponent,
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +77,8 @@ import { ConfirmationListComponent } from './confirmation-list/confirmation-list
     CardFormComponent,
     SummaryComponent,
     CouponComponent,
-    ConfirmationListComponent
+    ConfirmationListComponent,
+    LoginFormComponent
   ]
 })
 export class ComponentsModule {}
