@@ -5,25 +5,7 @@ import { IITem } from '../models/IItem';
 
 @Injectable({ providedIn: 'root' })
 export class CartService {
-  private cartItems: IITem[] = [
-    {
-      product: {
-        id: 1,
-        title: 'IPhone 14 Preto 128GB',
-        price: {
-          value: 3431.6,
-          discount: 30,
-          originalValue: 4289.5
-        },
-        image: {
-          url: '../../assets/imgs/iphone14.jpg',
-          alt: 'IPhone 14 Preto'
-        }
-      },
-      amount: 1,
-      totalPrice: 3431.6
-    }
-  ];
+  private cartItems: IITem[] = [];
   private discount: IDiscount = { percentage: 0, price: 0, value: 0 };
 
   public getCartItems(): IITem[] {
