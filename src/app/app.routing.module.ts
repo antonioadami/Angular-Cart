@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
 import { ProductIdGuard } from './guards/product-id.guard';
 import { AdminComponent } from './pages/admin/admin.component';
 import { CartComponent } from './pages/cart/cart.component';
@@ -21,8 +22,8 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'confirmation', component: ConfirmationComponent },
-  { path: 'admin', component: AdminComponent },
-  { path: 'user', component: UserComponent },
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
+  { path: 'user', component: UserComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'error', component: ErrorComponent },
   { path: '**', redirectTo: 'error' }
