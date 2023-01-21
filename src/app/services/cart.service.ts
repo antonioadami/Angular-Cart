@@ -79,9 +79,11 @@ export class CartService {
     return this.discount;
   }
 
-  public setDiscount(value: number): IDiscount {
-    if (value > 0 && value <= 100) {
-      this.discount.percentage = value;
+  public setDiscount(value: string): IDiscount {
+    const parsedDiscount = value.split(' ');
+    const discount = parseInt(parsedDiscount[1]);
+    if (discount > 0 && discount <= 100) {
+      this.discount.percentage = discount;
       this.calculateDiscount();
     }
     return this.discount;

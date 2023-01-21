@@ -11,12 +11,12 @@ export class CouponComponent {
   @Input()
   summary: SummaryComponent;
 
-  code: string;
+  coupon: string;
 
   constructor(private cartService: CartService) {}
 
   setDiscount() {
-    const discount = parseInt(this.code);
+    const discount = this.coupon;
     this.cartService.setDiscount(discount);
     this.summary.GetDiscount();
   }
