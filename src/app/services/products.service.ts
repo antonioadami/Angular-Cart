@@ -78,35 +78,9 @@ export class ProductsService {
     }
   ];
 
-  private bannerProducts: IProduct[] = [
-    {
-      id: 1,
-      title: 'IPhone 14 Preto 128GB',
-      price: { value: 4289.5, discount: 30, originalValue: 3431.6 },
-      image: {
-        url: '../../assets/imgs/iphone14.jpg',
-        alt: 'IPhone 14 Preto'
-      }
-    },
-    {
-      id: 2,
-      title: 'Bateria Magsafe',
-      price: { value: 169, discount: 0, originalValue: 169 },
-      image: {
-        url: '../../assets/imgs/bateria_magsafe.jpg',
-        alt: 'Bateria Magsafe'
-      }
-    },
-    {
-      id: 3,
-      title: 'Airpods',
-      price: { value: 1376.1, discount: 0, originalValue: 1376.1 },
-      image: {
-        url: '../../assets/imgs/airpods.jpg',
-        alt: 'Airpods'
-      }
-    }
-  ];
+  private bannerProducts: IProduct[] = this.products.filter(
+    (p) => p.price.discount > 0
+  );
 
   public getProducts(): IProduct[] {
     return this.products;
