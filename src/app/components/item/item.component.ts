@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatSelectChange } from '@angular/material/select';
 import { faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
-import { IChangeAmount } from 'src/app/models/IChangeAmount';
 import { IITem } from 'src/app/models/IItem';
 import { CartService } from 'src/app/services/cart.service';
 

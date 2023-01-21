@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-card-form',
@@ -7,10 +7,16 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./card-form.component.scss']
 })
 export class CardFormComponent {
+  @Output() validate = new EventEmitter<boolean>();
+
   cardFormGroup = new FormGroup({
-    number: new FormControl(''),
-    name: new FormControl(''),
-    cvv: new FormControl(''),
-    dueDate: new FormControl('')
+    number: new FormControl('', [Validators.required]),
+    name: new FormControl('', [Validators.required]),
+    cvv: new FormControl('', [Validators.required]),
+    dueDate: new FormControl('', [Validators.required])
   });
+
+  Validate() {
+    this.validate.emit(this.cardFormGroup.valid);
+  }
 }

@@ -1,6 +1,6 @@
 <div class="checkout-container">
   <div>
-    <app-card-form></app-card-form>
+    <app-card-form (validate)="DisableButton($event)"></app-card-form>
   </div>
   <div class="right-container">
     <app-summary #summary></app-summary>
@@ -8,5 +8,5 @@
   </div>
 </div>
 <div class="confirm-container">
-  <button  mat-flat-button>Confirm</button>
+  <button [disabled]="disabled" mat-flat-button>Confirm</button>
 </div>
