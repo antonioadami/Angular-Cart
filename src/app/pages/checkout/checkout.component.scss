@@ -6,3 +6,13 @@
 .right-container {
   margin-left: 48px;
 }
+
+.confirm-container {
+  width: 648px;
+  margin: 0 auto;
+  ::ng-deep .mdc-button{
+    width: 100%;
+    background-color: #0086ff;
+    color: #fff;
+  }
+}
