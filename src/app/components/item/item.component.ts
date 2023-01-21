@@ -11,6 +11,7 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class ItemComponent {
   @Input() item: IITem;
+  @Input() changable = false;
   @Output() refreshItems = new EventEmitter<void>();
 
   constructor(private cartService: CartService) {}

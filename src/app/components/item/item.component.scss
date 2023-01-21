@@ -1,7 +1,12 @@
 .item-container {
-  width: 996px;
+  width: 600px;
   height: 130px;
   padding: 20px 0;
+
+  &.changable {
+    width: 996px;
+    border-bottom: none;
+  }
 }
 
 .item-title-container {

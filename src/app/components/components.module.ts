@@ -29,6 +29,8 @@ import { AddCartButtonComponent } from './add-cart-button/add-cart-button.compon
 import { CardFormComponent } from './card-form/card-form.component';
 import { SummaryComponent } from './summary/summary.component';
 import { CouponComponent } from './coupon/coupon.component';
+import { ConfirmationListComponent } from './confirmation-list/confirmation-list.component';
+
 @NgModule({
   declarations: [
     ItemComponent,
@@ -42,7 +44,8 @@ import { CouponComponent } from './coupon/coupon.component';
     AddCartButtonComponent,
     CardFormComponent,
     SummaryComponent,
-    CouponComponent
+    CouponComponent,
+    ConfirmationListComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +74,8 @@ import { CouponComponent } from './coupon/coupon.component';
     DetailsInfosComponent,
     CardFormComponent,
     SummaryComponent,
-    CouponComponent
+    CouponComponent,
+    ConfirmationListComponent
   ]
 })
 export class ComponentsModule {}

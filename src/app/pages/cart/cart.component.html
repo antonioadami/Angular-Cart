@@ -16,7 +16,7 @@
 
 <div class="cart-items-container">
   <div *ngFor="let item of items" class="item-container">
-    <app-item [item]="item" (refreshItems)="RefreshItems()"></app-item>
+    <app-item [item]="item" [changable]="true" (refreshItems)="RefreshItems()"></app-item>
   </div>
 </div>
 
