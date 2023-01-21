@@ -3,10 +3,10 @@ import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  authenticated = false;
-  adminAuthenticated = false;
+  private authenticated = false;
+  private adminAuthenticated = false;
 
-  authenticatedSubject = new BehaviorSubject<boolean>(false);
+  private authenticatedSubject = new BehaviorSubject<boolean>(false);
 
   public isAuthenticated(): boolean {
     return this.authenticated;
