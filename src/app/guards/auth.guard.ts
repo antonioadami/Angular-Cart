@@ -9,8 +9,6 @@ export class AuthGuard implements CanActivate {
   constructor(private router: Router, private authService: AuthService) {}
 
   canActivate(route: ActivatedRouteSnapshot): boolean {
-    console.log(route.url);
-
     if (route.url[0].path === 'admin') {
       if (this.authService.isAdminAuthenticated()) {
         return true;
