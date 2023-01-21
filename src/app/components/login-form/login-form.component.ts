@@ -21,11 +21,9 @@ export class LoginFormComponent {
     const password = this.loginFormGroup.get('password')?.value;
 
     if (email && password) {
-      this.authService.Authenticate(email, password);
-      if (this.authService.isAdminAuthenticated()) {
-        this.router.navigate(['/admin']);
-      } else if (this.authService.isAuthenticated()) {
-        this.router.navigate(['/user']);
+      const authenticated = this.authService.Authenticate(email, password);
+      if (authenticated) {
+        this.router.navigate(['/']);
       }
     }
   }

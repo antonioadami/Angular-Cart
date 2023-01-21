@@ -1,12 +1,19 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   authenticated = false;
   adminAuthenticated = false;
 
+  authenticatedSubject = new BehaviorSubject<boolean>(false);
+
   public isAuthenticated(): boolean {
     return this.authenticated;
+  }
+
+  public isAuthenticatedObservable(): Observable<boolean> {
+    return this.authenticatedSubject.asObservable();
   }
 
   public isAdminAuthenticated(): boolean {
@@ -18,6 +25,7 @@ export class AuthService {
       this.adminAuthenticated = true;
     } else {
       this.authenticated = true;
+      this.authenticatedSubject.next(true);
     }
 
     return true;

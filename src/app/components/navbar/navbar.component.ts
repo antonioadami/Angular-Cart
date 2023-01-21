@@ -1,6 +1,11 @@
-import { faCartShopping, faUser } from '@fortawesome/free-solid-svg-icons';
+import {
+  faCartShopping,
+  faRightToBracket,
+  faUser
+} from '@fortawesome/free-solid-svg-icons';
 import { Component, Input, OnInit } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,10 +17,19 @@ export class NavbarComponent implements OnInit {
 
   faCartShopping = faCartShopping;
   faUser = faUser;
+  faRightToBracket = faRightToBracket;
 
-  constructor(private cartService: CartService) {}
+  authenticated = false;
+
+  constructor(
+    private cartService: CartService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
     this.cartAmount = this.cartService.getTotalItems();
+    this.authService
+      .isAuthenticatedObservable()
+      .subscribe((a) => (this.authenticated = a));
   }
 }
