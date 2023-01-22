@@ -1,0 +1,16 @@
+<div [routerLink]="['details']" [queryParams]="{id: product.id}" class="product-container">
+  <div class="image-container">
+    <img [src]="product.image.url" [alt]="product.image.alt">
+  </div>
+  <div class="text-container">
+    <span class="title">{{product.title}}</span>
+    <div class="price-container">
+      <span class="discount" *ngIf="product.price.discount > 0">{{product.price.discount}}% OFF</span>
+      <span class="original-value" *ngIf="product.price.discount > 0">{{product.price.originalValue | currency}}</span>
+      <span class="value">{{product.price.value | currency}}</span>
+    </div>
+  </div>
+  <div class="button-container">
+    <app-add-cart-button [amount]="1" [productId]="product.id" ></app-add-cart-button>
+  </div>
+</div>

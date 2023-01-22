@@ -1,0 +1,13 @@
+<div class="coupon-container">
+  <h3 class="title">Enter a promotional code</h3>
+
+  <div class="d-flex" >
+    <mat-form-field appearance="outline">
+      <mat-label>Promotional code</mat-label>
+      <input matInput type="text" [(ngModel)]="coupon">
+      <mat-hint>Example: Discount 20</mat-hint>
+    </mat-form-field>
+
+    <button mat-flat-button (click)="setDiscount()" >Apply</button>
+  </div>
+</div>

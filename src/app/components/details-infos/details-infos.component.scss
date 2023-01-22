@@ -1,0 +1,58 @@
+.infos-container {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+}
+
+.title {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 400;
+
+  margin-bottom: 40px;
+}
+
+.price-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.discount  {
+  font-size: 24px;
+  font-weight: 500;
+  color: #0086ff;
+
+  margin-bottom: 16px;
+}
+
+.original-value {
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: line-through;
+  color: #575757;
+  margin-bottom: 06px;
+}
+
+.value {
+  font-size: 28px;
+  font-weight: 500;
+  color: #0086ff;
+}
+
+.button-container {
+  width: 100%;
+}
+
+.amount-select {
+  margin-top: 40px;
+
+  span {
+    font-size: 14px;
+    font-weight: 500;
+    margin-right: 8px;
+  }
+
+  mat-form-field {
+    width: 58px;
+  }
+}

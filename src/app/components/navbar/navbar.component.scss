@@ -1,0 +1,42 @@
+:host {
+  height: 78px;
+  width: 100%;
+  background-color: #0086ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 32px;
+}
+
+.navbar-container {
+  width: 996px;
+}
+
+h1 {
+  color: #fff;
+  font-size: 32px;
+  font-weight: 800;
+  margin: 0;
+  cursor: pointer;
+}
+
+.cart-container {
+  cursor: pointer;
+}
+
+.cart-icon, .user-icon {
+  color: #fff;
+}
+
+.mat-badge-content {
+  background: #58c22e !important;
+}
+
+.icons-container {
+  display: flex;
+  cursor: pointer;
+}
+
+.user-container {
+  margin-left: 32px;
+}

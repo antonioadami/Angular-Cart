@@ -1,0 +1,17 @@
+<ngb-carousel [interval]="6000" *ngIf="products.length > 0" class="carousel">
+	<ng-template ngbSlide *ngFor="let product of products">
+    <div class="slide-container">
+      <div class="image-container">
+        <img [src]="product.image.url" [alt]="product.image.alt" />
+      </div>
+      <div class="text-container">
+        <h3 class="title">{{product.title}}</h3>
+        <div class="values-container">
+          <span class="discount">{{product.price.discount}}% OFF</span>
+          <span class="original-value">{{product.price.originalValue | currency}}</span>
+          <span class="value">{{product.price.value | currency}}</span>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</ngb-carousel>

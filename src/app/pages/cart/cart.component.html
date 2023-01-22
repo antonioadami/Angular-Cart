@@ -1,0 +1,30 @@
+<h3 class="cart-title">Your Items</h3>
+
+<div class="d-flex justify-content-between">
+  <div class="header-image-container">
+    <span class="header-text">Item</span>
+  </div>
+  <div class="header-name-blank-container"></div>
+  <div class="header-amount-container">
+    <span class="header-text">Amount</span>
+  </div>
+  <div class="header-price-container">
+    <span class="header-text">Price</span>
+  </div>
+  <div class="header-icon-blank-container"></div>
+</div>
+
+<div class="cart-items-container">
+  <div *ngFor="let item of items" class="item-container">
+    <app-item [item]="item" [changable]="true" (refreshItems)="RefreshItems()"></app-item>
+  </div>
+</div>
+
+<div *ngIf="totalItems > 0" class="d-flex justify-content-end total-container">
+  <span class="total-text">Total ({{totalItems}} items):</span>
+  <span class="total-price-text">{{totalPrice | currency}}</span>
+</div>
+
+<div class="submit-container" *ngIf="totalItems > 0">
+  <button [routerLink]="'/checkout'" mat-flat-button>Proceed to checkout</button>
+</div>

@@ -1,0 +1,28 @@
+<div class="item-container d-flex justify-content-between"  [class.changable]="changable">
+  <app-item-image [url]="item.product.image.url" [alt]="item.product.image.alt" ></app-item-image>
+
+  <div class="item-title-container">
+    <span>{{item.product.title}}</span>
+  </div>
+  <div class="item-amount-container">
+    <span *ngIf="item.amount === 0 || !changable; else selectAmount">{{item.amount}}</span>
+    <ng-template #selectAmount>
+      <div class="amount-select">
+        <mat-form-field appearance="outline">
+          <mat-select   [(value)]="item.amount" (selectionChange)="AmountChanged(item.product.id, $event)">
+            <mat-option *ngFor="let amountItem of amountItems" [value]="amountItem">
+              {{amountItem}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </ng-template>
+  </div>
+  <div class="d-flex flex-column item-price-container">
+    <span>{{item.totalPrice | currency}} </span>
+  </div>
+
+  <div *ngIf="changable" class="d-flex justify-content-center align-items-center">
+    <fa-icon matTooltip="Remove from cart" matTooltipPosition="above" *ngIf="item.amount > 0" class="trash-icon" [icon]="faTrash" size="lg" (click)="RemoveItem()"></fa-icon>
+  </div>
+</div>

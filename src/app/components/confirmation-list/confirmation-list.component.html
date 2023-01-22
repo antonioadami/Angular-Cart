@@ -1,0 +1,16 @@
+<div class="list-container">
+  <div class="d-flex justify-content-between">
+    <div class="header-image-container">
+      <span class="header-text">Item</span>
+    </div>
+    <div class="header-name-blank-container"></div>
+    <div class="header-amount-container">
+      <span class="header-text">Amount</span>
+    </div>
+    <div class="header-price-container">
+      <span class="header-text">Price</span>
+    </div>
+    <div class="header-icon-blank-container"></div>
+  </div>
+  <app-item *ngFor="let item of cartItems" [item]="item"></app-item>
+</div>

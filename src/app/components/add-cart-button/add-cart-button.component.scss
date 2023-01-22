@@ -1,0 +1,10 @@
+.add-cart-button {
+  width: 100%;
+
+  ::ng-deep .mdc-button{
+    width: 100%;
+    background-color: #0086ff;
+    color: #fff;
+  }
+}
+

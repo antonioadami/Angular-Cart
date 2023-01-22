@@ -1,0 +1,12 @@
+<div class="checkout-container">
+  <div>
+    <app-card-form (validate)="DisableButton($event)"></app-card-form>
+  </div>
+  <div class="right-container">
+    <app-summary #summary></app-summary>
+    <app-coupon [summary]="summary"></app-coupon>
+  </div>
+</div>
+<div class="confirm-container">
+  <button [routerLink]="'/confirmation'" [disabled]="disabled" mat-flat-button>Confirm</button>
+</div>

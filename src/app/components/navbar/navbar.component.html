@@ -1,0 +1,17 @@
+<div class="navbar-container d-flex justify-content-between">
+  <h1 [routerLink]="''">Angular Cart</h1>
+
+  <div class="icons-container">
+    <div [matBadge]="cartAmount" class="cart-container">
+      <fa-icon [routerLink]="'cart'" class="cart-icon" [icon]="faCartShopping" size="2xl"></fa-icon>
+    </div>
+    <div class="user-container">
+      <fa-icon *ngIf="!authenticated; else userIcon" [routerLink]="'login'" class="user-icon" [icon]="faRightToBracket" size="2xl"></fa-icon>
+      <ng-template #userIcon>
+        <fa-icon [routerLink]="'user'" class="user-icon" [icon]="faUser" size="2xl"></fa-icon>
+      </ng-template>
+    </div>
+  </div>
+</div>
+
+
