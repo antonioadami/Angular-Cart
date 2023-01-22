@@ -18,6 +18,6 @@ export class CouponComponent {
   setDiscount() {
     const discount = this.coupon;
     this.cartService.setDiscount(discount);
-    this.summary.GetDiscount();
+    this.summary.GetData();
   }
 }

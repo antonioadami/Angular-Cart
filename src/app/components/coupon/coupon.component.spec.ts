@@ -56,4 +56,13 @@ describe('CouponComponent', () => {
 
     expect(discount.percentage).toBe(10);
   });
+
+  it('should not add a discount coupon', () => {
+    component.coupon = '10';
+    component.setDiscount();
+
+    const discount = cartService.getDiscount();
+
+    expect(discount.percentage).toBe(0);
+  });
 });

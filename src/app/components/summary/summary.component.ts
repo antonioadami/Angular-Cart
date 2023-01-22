@@ -15,12 +15,12 @@ export class SummaryComponent implements OnInit {
   constructor(private cartService: CartService) {}
 
   ngOnInit(): void {
-    this.totalPrice = this.cartService.getTotalPrice();
-    this.totalItems = this.cartService.getTotalItems();
-    this.GetDiscount();
+    this.GetData();
   }
 
-  public GetDiscount() {
+  public GetData() {
+    this.totalPrice = this.cartService.getTotalPrice();
+    this.totalItems = this.cartService.getTotalItems();
     this.discount = this.cartService.getDiscount();
   }
 }
