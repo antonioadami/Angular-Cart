@@ -8,7 +8,7 @@ import { ProductsService } from 'src/app/services/products.service';
   styleUrls: ['./carousel.component.scss']
 })
 export class CarouselComponent implements OnInit {
-  products: IProduct[];
+  products: IProduct[] = [];
 
   constructor(private productsService: ProductsService) {}
 
