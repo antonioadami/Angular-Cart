@@ -1,15 +1,17 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { IUserResponse } from '../models/IUserResponse';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private authenticated = false;
-  private adminAuthenticated = false;
-
   private authenticatedSubject = new BehaviorSubject<boolean>(false);
 
+  constructor(private http: HttpClient) {}
+
   public isAuthenticated(): boolean {
-    return this.authenticated;
+    return !!localStorage.getItem('token');
   }
 
   public isAuthenticatedObservable(): Observable<boolean> {
@@ -17,17 +19,57 @@ export class AuthService {
   }
 
   public isAdminAuthenticated(): boolean {
-    return this.adminAuthenticated;
+    return !!localStorage.getItem('adminToken');
   }
 
-  public Authenticate(email: string, _password: string): boolean {
-    if (email === 'admin') {
-      this.adminAuthenticated = true;
-    } else {
-      this.authenticated = true;
-      this.authenticatedSubject.next(true);
-    }
+  public async Authenticate(
+    username: string,
+    password: string
+  ): Promise<boolean> {
+    const promise = new Promise<string>((resolve, reject) => {
+      if (username === 'admin') {
+        this.http
+          .post<IUserResponse>(`${environment.API_URL}/auth/login`, {
+            username: environment.API_ADMIN_USER,
+            password: environment.API_ADMIN_PASSWORD
+          })
+          .subscribe((ans) => {
+            localStorage.setItem('adminToken', ans.token);
+            resolve(ans.token);
+          });
+      } else {
+        this.http
+          .post<IUserResponse>(`${environment.API_URL}/auth/login`, {
+            username,
+            password
+          })
+          .subscribe(
+            (ans) => {
+              localStorage.setItem('token', ans.token);
+              this.authenticatedSubject.next(true);
+              resolve(ans.token);
+            },
+            (err) => {
+              reject(err);
+            }
+          );
+      }
+    });
 
-    return true;
+    try {
+      await promise;
+      return true;
+    } catch (err) {
+      return false;
+    }
+  }
+
+  public Logout() {
+    localStorage.removeItem('token');
+    this.authenticatedSubject.next(false);
+  }
+
+  public LogoutAdmin() {
+    localStorage.removeItem('adminToken');
   }
 }
