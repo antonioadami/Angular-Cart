@@ -1,4 +1,12 @@
+:host {
+  height: auto;
+}
+
 .main-container {
+  min-height: 100%;
+}
+
+.router-container {
   width: 996px;
   padding-top: 16px;
 

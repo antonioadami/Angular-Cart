@@ -22,10 +22,8 @@ export class DetailsComponent implements OnInit {
       return;
     }
 
-    const product = this.productsService.getProductById(parseInt(id));
-
-    if (product) {
-      this.product = product;
-    }
+    this.productsService
+      .getProductById(parseInt(id))
+      .subscribe((product) => (this.product = product));
   }
 }

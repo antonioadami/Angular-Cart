@@ -1,5 +1,5 @@
 <div class="item-container d-flex justify-content-between"  [class.changable]="changable">
-  <app-item-image [url]="item.product.image.url" [alt]="item.product.image.alt" ></app-item-image>
+  <app-item-image [url]="item.product.images[0]" [alt]="item.product.title" ></app-item-image>
 
   <div class="item-title-container">
     <span>{{item.product.title}}</span>

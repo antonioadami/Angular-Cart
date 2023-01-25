@@ -13,6 +13,8 @@ export class CarouselComponent implements OnInit {
   constructor(private productsService: ProductsService) {}
 
   ngOnInit(): void {
-    this.products = this.productsService.getBannerProducts();
+    this.productsService
+      .getBannerProducts()
+      .subscribe((products) => (this.products = products.products));
   }
 }

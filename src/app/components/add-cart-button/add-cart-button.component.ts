@@ -20,20 +20,16 @@ export class AddCartButtonComponent {
   ) {}
 
   addToCart() {
-    const product = this.productsService.getProductById(this.productId);
+    this.productsService.getProductById(this.productId).subscribe((product) => {
+      const item: IITem = {
+        product,
+        amount: this.amount,
+        totalPrice: this.amount * product.price
+      };
 
-    if (!product) {
-      return;
-    }
+      this.cartService.addItem(item);
 
-    const item: IITem = {
-      product,
-      amount: this.amount,
-      totalPrice: this.amount * product.price.value
-    };
-
-    this.cartService.addItem(item);
-
-    this.router.navigate(['cart']);
+      this.router.navigate(['cart']);
+    });
   }
 }
