@@ -6,12 +6,13 @@ import { ComponentsModule } from 'src/app/components/components.module';
 import { CommonModule, registerLocaleData } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppComponent } from './app.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app.routing.module';
 import { PagesModule } from './pages/pages.module';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 registerLocaleData(localePt);
 
@@ -33,6 +34,11 @@ registerLocaleData(localePt);
     {
       provide: DEFAULT_CURRENCY_CODE,
       useValue: 'BRL'
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
     }
   ],
   bootstrap: [AppComponent]
