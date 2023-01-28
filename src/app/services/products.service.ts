@@ -23,4 +23,10 @@ export class ProductsService {
   public getBannerProducts(): Observable<IProductsResponse> {
     return this.http.get<IProductsResponse>(`${this.productsBaseUrl}?limit=5`);
   }
+
+  public getProductsByName(search: string): Observable<IProductsResponse> {
+    return this.http.get<IProductsResponse>(
+      `${this.productsBaseUrl}/search?q=${search}`
+    );
+  }
 }
