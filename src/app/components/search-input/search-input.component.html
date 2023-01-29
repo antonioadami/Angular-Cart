@@ -1,0 +1,8 @@
+<form (submit)="Submit()">
+  <mat-form-field class="input-container" appearance="outline">
+    <mat-label>Search</mat-label>
+    <input matInput [(ngModel)]="searchInput" name="search">
+    <fa-icon matPrefix  [icon]="faMagnifyingGlass" size="lg"></fa-icon>
+  </mat-form-field>
+</form>
+

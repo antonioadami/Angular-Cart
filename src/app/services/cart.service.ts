@@ -41,10 +41,9 @@ export class CartService {
 
       if (data.amount > 0) {
         this.cartItems[index].totalPrice =
-          data.amount * this.cartItems[index].product.price.value;
+          data.amount * this.cartItems[index].product.price;
       } else {
-        this.cartItems[index].totalPrice =
-          this.cartItems[index].product.price.value;
+        this.cartItems[index].totalPrice = this.cartItems[index].product.price;
       }
     }
     this.calculateDiscount();
@@ -69,7 +68,7 @@ export class CartService {
   public getTotalPrice(): number {
     let value = 0;
     this.cartItems.forEach((item) => {
-      value += item.amount * item.product.price.value;
+      value += item.amount * item.product.price;
     });
 
     return value;

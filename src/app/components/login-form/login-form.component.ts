@@ -16,12 +16,15 @@ export class LoginFormComponent {
 
   constructor(private authService: AuthService, private router: Router) {}
 
-  Validate() {
+  async Validate() {
     const email = this.loginFormGroup.get('email')?.value;
     const password = this.loginFormGroup.get('password')?.value;
 
     if (email && password) {
-      const authenticated = this.authService.Authenticate(email, password);
+      const authenticated = await this.authService.Authenticate(
+        email,
+        password
+      );
       if (authenticated) {
         this.router.navigate(['/']);
       }

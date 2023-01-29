@@ -1,8 +1,6 @@
 <div class="infos-container">
   <span class="title">{{product.title}}</span>
-  <span class="discount" *ngIf="product.price.discount > 0">{{product.price.discount}}% OFF</span>
-  <span class="original-value" *ngIf="product.price.discount > 0">{{product.price.originalValue | currency}}</span>
-  <span class="value">{{product.price.value | currency}}</span>
+  <span class="value" >{{product.price | currency}}</span>
 
   <div class="amount-select">
     <span>Select amount:</span>

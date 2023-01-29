@@ -8,11 +8,13 @@ import { ProductsService } from 'src/app/services/products.service';
   styleUrls: ['./carousel.component.scss']
 })
 export class CarouselComponent implements OnInit {
-  products: IProduct[];
+  products: IProduct[] = [];
 
   constructor(private productsService: ProductsService) {}
 
   ngOnInit(): void {
-    this.products = this.productsService.getBannerProducts();
+    this.productsService
+      .getBannerProducts()
+      .subscribe((products) => (this.products = products.products));
   }
 }

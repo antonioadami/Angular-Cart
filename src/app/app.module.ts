@@ -5,12 +5,14 @@ import { DEFAULT_CURRENCY_CODE, LOCALE_ID } from '@angular/core';
 import { ComponentsModule } from 'src/app/components/components.module';
 import { CommonModule, registerLocaleData } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppComponent } from './app.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app.routing.module';
 import { PagesModule } from './pages/pages.module';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 registerLocaleData(localePt);
 
@@ -24,13 +26,19 @@ registerLocaleData(localePt);
     AppRoutingModule,
     PagesModule,
     ComponentsModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' },
     {
       provide: DEFAULT_CURRENCY_CODE,
       useValue: 'BRL'
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
     }
   ],
   bootstrap: [AppComponent]
