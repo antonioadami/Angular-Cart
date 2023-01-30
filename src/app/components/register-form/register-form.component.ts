@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ICreateUser } from 'src/app/models/ICreateUser';
 import { CepService } from 'src/app/services/cep.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-register-form',
@@ -8,10 +11,14 @@ import { CepService } from 'src/app/services/cep.service';
   styleUrls: ['./register-form.component.scss']
 })
 export class RegisterFormComponent {
-  constructor(private cepService: CepService) {}
+  constructor(
+    private cepService: CepService,
+    private userService: UserService,
+    private router: Router
+  ) {}
 
   registerFormGroup = new FormGroup({
-    name: new FormControl('', [Validators.required]),
+    firstName: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
     confirmPassword: new FormControl('', [Validators.required]),
@@ -47,6 +54,23 @@ export class RegisterFormComponent {
   }
 
   Validate() {
+    if (this.registerFormGroup.valid) {
+      const data = this.registerFormGroup.getRawValue() as ICreateUser;
+      if (data.confirmPassword !== data.password) {
+        console.log(data.password);
+        console.log(data.confirmPassword);
+
+        alert('Passwords must be equal');
+        return;
+      }
+
+      delete data.confirmPassword;
+
+      this.userService.createUser(data).subscribe(() => {
+        this.router.navigate(['/login']);
+      });
+    }
+
     // this.validate.emit(this.cardFormGroup.valid);
   }
 }
