@@ -1,0 +1,52 @@
+import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { CepService } from 'src/app/services/cep.service';
+
+@Component({
+  selector: 'app-register-form',
+  templateUrl: './register-form.component.html',
+  styleUrls: ['./register-form.component.scss']
+})
+export class RegisterFormComponent {
+  constructor(private cepService: CepService) {}
+
+  registerFormGroup = new FormGroup({
+    name: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required]),
+    confirmPassword: new FormControl('', [Validators.required]),
+    address: new FormGroup({
+      cep: new FormControl('', [Validators.required]),
+      street: new FormControl('', [Validators.required]),
+      number: new FormControl('', [Validators.required]),
+      complement: new FormControl('', []),
+      neighborhood: new FormControl('', [Validators.required]),
+      city: new FormControl('', [Validators.required]),
+      state: new FormControl('', [Validators.required])
+    })
+  });
+
+  GetAddressByCep() {
+    const cep = this.registerFormGroup.get('address')?.get('cep')?.value;
+
+    if (cep) {
+      this.cepService.getAddress(cep).subscribe((a) => {
+        console.log(a);
+        const address = this.registerFormGroup.get('address');
+        address?.setValue({
+          cep,
+          city: a.city,
+          state: a.state,
+          neighborhood: a.neighborhood || '',
+          street: a.street,
+          complement: '',
+          number: ''
+        });
+      });
+    }
+  }
+
+  Validate() {
+    // this.validate.emit(this.cardFormGroup.valid);
+  }
+}

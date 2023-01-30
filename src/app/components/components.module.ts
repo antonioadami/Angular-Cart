@@ -33,6 +33,7 @@ import { ConfirmationListComponent } from './confirmation-list/confirmation-list
 import { LoginFormComponent } from './login-form/login-form.component';
 import { FooterComponent } from './footer/footer.component';
 import { SearchInputComponent } from './search-input/search-input.component';
+import { RegisterFormComponent } from './register-form/register-form.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { SearchInputComponent } from './search-input/search-input.component';
     ConfirmationListComponent,
     LoginFormComponent,
     FooterComponent,
-    SearchInputComponent
+    SearchInputComponent,
+    RegisterFormComponent
   ],
   imports: [
     BrowserModule,
@@ -84,7 +86,8 @@ import { SearchInputComponent } from './search-input/search-input.component';
     ConfirmationListComponent,
     LoginFormComponent,
     FooterComponent,
-    SearchInputComponent
+    SearchInputComponent,
+    RegisterFormComponent
   ]
 })
 export class ComponentsModule {}
