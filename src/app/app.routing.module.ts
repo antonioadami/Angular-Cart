@@ -22,11 +22,15 @@ const routes: Routes = [
     canActivate: [ProductIdGuard]
   },
   { path: 'cart', component: CartComponent, canActivate: [CartGuard] },
-  { path: 'checkout', component: CheckoutComponent, canActivate: [CartGuard] },
+  {
+    path: 'checkout',
+    component: CheckoutComponent,
+    canActivate: [CartGuard, AuthGuard]
+  },
   {
     path: 'confirmation',
     component: ConfirmationComponent,
-    canActivate: [CartGuard]
+    canActivate: [CartGuard, AuthGuard]
   },
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
   { path: 'user', component: UserComponent, canActivate: [AuthGuard] },
