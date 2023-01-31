@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
 import { RegisterComponent } from './register/register.component';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { RegisterComponent } from './register/register.component';
     CommonModule,
     ComponentsModule,
     RouterModule,
-    MatButtonModule
+    MatButtonModule,
+    MatButtonToggleModule
   ],
   exports: []
 })
