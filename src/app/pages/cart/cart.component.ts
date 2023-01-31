@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IITem } from 'src/app/models/IItem';
+import { AuthService } from 'src/app/services/auth.service';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({
@@ -11,7 +13,11 @@ export class CartComponent implements OnInit {
   totalPrice: number;
   items: IITem[] = [];
 
-  constructor(private cartService: CartService) {}
+  constructor(
+    private cartService: CartService,
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.Init();
@@ -25,5 +31,13 @@ export class CartComponent implements OnInit {
 
   RefreshItems(): void {
     this.Init();
+  }
+
+  Checkout() {
+    if (this.authService.isAuthenticated()) {
+      this.router.navigate(['/checkout']);
+    } else {
+      this.router.navigate(['/login']);
+    }
   }
 }
