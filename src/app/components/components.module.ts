@@ -35,6 +35,8 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { FooterComponent } from './footer/footer.component';
 import { SearchInputComponent } from './search-input/search-input.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
+import { AdminProductsListComponent } from './admin-products-list/admin-products-list.component';
+import { AdminProductItemComponent } from './admin-product-item/admin-product-item.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,9 @@ import { RegisterFormComponent } from './register-form/register-form.component';
     LoginFormComponent,
     FooterComponent,
     SearchInputComponent,
-    RegisterFormComponent
+    RegisterFormComponent,
+    AdminProductsListComponent,
+    AdminProductItemComponent
   ],
   imports: [
     BrowserModule,
@@ -89,7 +93,8 @@ import { RegisterFormComponent } from './register-form/register-form.component';
     LoginFormComponent,
     FooterComponent,
     SearchInputComponent,
-    RegisterFormComponent
+    RegisterFormComponent,
+    AdminProductsListComponent
   ]
 })
 export class ComponentsModule {}
