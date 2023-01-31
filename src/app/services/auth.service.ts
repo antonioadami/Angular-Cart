@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { IUserResponse } from '../models/IUserResponse';
+import { IAuthResponse } from '../models/IAuthResponse';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -29,7 +29,7 @@ export class AuthService {
     const promise = new Promise<string>((resolve, reject) => {
       if (username === 'admin') {
         this.http
-          .post<IUserResponse>(`${environment.API_URL}/auth/login`, {
+          .post<IAuthResponse>(`${environment.API_URL}/auth/login`, {
             username: environment.API_ADMIN_USER,
             password: environment.API_ADMIN_PASSWORD
           })
@@ -39,7 +39,7 @@ export class AuthService {
           });
       } else {
         this.http
-          .post<IUserResponse>(`${environment.API_URL}/auth/login`, {
+          .post<IAuthResponse>(`${environment.API_URL}/auth/login`, {
             username,
             password
           })
