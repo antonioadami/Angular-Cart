@@ -15,6 +15,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDividerModule } from '@angular/material/divider';
 
 import { ItemImageComponent } from './item-image/item-image.component';
@@ -69,6 +70,7 @@ import { RegisterFormComponent } from './register-form/register-form.component';
     NgbCarouselModule,
     MatButtonModule,
     MatDividerModule,
+    MatCheckboxModule,
     ReactiveFormsModule,
     FormsModule,
     NgxMaskModule.forRoot()

@@ -22,6 +22,8 @@ export class RegisterFormComponent {
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
     confirmPassword: new FormControl('', [Validators.required]),
+    privacyPolicies: new FormControl(false, []),
+    personalData: new FormControl(false, []),
     address: new FormGroup({
       cep: new FormControl('', [Validators.required]),
       street: new FormControl('', [Validators.required]),

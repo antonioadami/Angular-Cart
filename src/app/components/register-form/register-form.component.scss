@@ -31,10 +31,25 @@
     width: 100%;
   }
 
+  ::ng-deep .mat-mdc-checkbox-checked.mat-accent .mdc-form-field .mdc-checkbox {
+    .mdc-checkbox__ripple {
+      opacity: 0.03 !important;
+      background-color: #0086ff!important;
+    }
+
+    .mdc-checkbox__background {
+      border-color: #0086ff;
+      background-color: #0086ff;
+    }
+  }
+
+
+
 }
 
 .submit-container {
   width: 100%;
+  margin-top: 16px;
 
   ::ng-deep .mdc-button{
     width: 100%;
