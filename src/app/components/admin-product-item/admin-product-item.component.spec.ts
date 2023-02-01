@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AppModule } from 'src/app/app.module';
 
 import { AdminProductItemComponent } from './admin-product-item.component';
 
@@ -8,9 +9,9 @@ describe('AdminProductItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AdminProductItemComponent ]
-    })
-    .compileComponents();
+      declarations: [AdminProductItemComponent],
+      imports: [AppModule]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(AdminProductItemComponent);
     component = fixture.componentInstance;
