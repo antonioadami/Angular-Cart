@@ -26,5 +26,5 @@
 </div>
 
 <div class="submit-container" *ngIf="totalItems > 0">
-  <button [routerLink]="'/checkout'" mat-flat-button>Proceed to checkout</button>
+  <button (click)="Checkout()" mat-flat-button>Proceed to checkout</button>
 </div>

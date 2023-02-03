@@ -1,0 +1,11 @@
+
+<div class="list-container">
+  <mat-button-toggle-group value="products" (change)="onChange($event)" class="button-group">
+    <mat-button-toggle value="products">Products</mat-button-toggle>
+    <mat-button-toggle value="users">Users</mat-button-toggle>
+  </mat-button-toggle-group>
+
+  <app-admin-products-list *ngIf="listType === 'products'"></app-admin-products-list>
+  <app-admin-users-list *ngIf="listType === 'users'"></app-admin-users-list>
+
+</div>

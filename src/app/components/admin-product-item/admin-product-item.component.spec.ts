@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppModule } from 'src/app/app.module';
 
-import { SearchInputComponent } from './search-input.component';
+import { AdminProductItemComponent } from './admin-product-item.component';
 
-describe('SearchInputComponent', () => {
-  let component: SearchInputComponent;
-  let fixture: ComponentFixture<SearchInputComponent>;
+describe('AdminProductItemComponent', () => {
+  let component: AdminProductItemComponent;
+  let fixture: ComponentFixture<AdminProductItemComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SearchInputComponent],
+      declarations: [AdminProductItemComponent],
       imports: [AppModule]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(SearchInputComponent);
+    fixture = TestBed.createComponent(AdminProductItemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

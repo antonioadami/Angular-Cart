@@ -15,6 +15,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDividerModule } from '@angular/material/divider';
 
 import { ItemImageComponent } from './item-image/item-image.component';
@@ -33,6 +34,11 @@ import { ConfirmationListComponent } from './confirmation-list/confirmation-list
 import { LoginFormComponent } from './login-form/login-form.component';
 import { FooterComponent } from './footer/footer.component';
 import { SearchInputComponent } from './search-input/search-input.component';
+import { RegisterFormComponent } from './register-form/register-form.component';
+import { AdminProductsListComponent } from './admin-products-list/admin-products-list.component';
+import { AdminProductItemComponent } from './admin-product-item/admin-product-item.component';
+import { AdminUsersListComponent } from './admin-users-list/admin-users-list.component';
+import { AdminUserItemComponent } from './admin-user-item/admin-user-item.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +57,12 @@ import { SearchInputComponent } from './search-input/search-input.component';
     ConfirmationListComponent,
     LoginFormComponent,
     FooterComponent,
-    SearchInputComponent
+    SearchInputComponent,
+    RegisterFormComponent,
+    AdminProductsListComponent,
+    AdminProductItemComponent,
+    AdminUsersListComponent,
+    AdminUserItemComponent
   ],
   imports: [
     BrowserModule,
@@ -67,6 +78,7 @@ import { SearchInputComponent } from './search-input/search-input.component';
     NgbCarouselModule,
     MatButtonModule,
     MatDividerModule,
+    MatCheckboxModule,
     ReactiveFormsModule,
     FormsModule,
     NgxMaskModule.forRoot()
@@ -84,7 +96,10 @@ import { SearchInputComponent } from './search-input/search-input.component';
     ConfirmationListComponent,
     LoginFormComponent,
     FooterComponent,
-    SearchInputComponent
+    SearchInputComponent,
+    RegisterFormComponent,
+    AdminProductsListComponent,
+    AdminUsersListComponent
   ]
 })
 export class ComponentsModule {}

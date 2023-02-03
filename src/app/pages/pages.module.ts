@@ -13,6 +13,13 @@ import { ErrorComponent } from './error/error.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
+import { RegisterComponent } from './register/register.component';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -24,14 +31,22 @@ import { UserComponent } from './user/user.component';
     ConfirmationComponent,
     AdminComponent,
     UserComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     CommonModule,
     ComponentsModule,
     RouterModule,
-    MatButtonModule
+    MatButtonModule,
+    MatButtonToggleModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatCheckboxModule,
+    MatInputModule,
+    FontAwesomeModule
   ],
   exports: []
 })

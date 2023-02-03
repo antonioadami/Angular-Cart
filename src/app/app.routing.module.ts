@@ -11,6 +11,7 @@ import { DetailsComponent } from './pages/details/details.component';
 import { ErrorComponent } from './pages/error/error.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
 import { UserComponent } from './pages/user/user.component';
 
 const routes: Routes = [
@@ -21,15 +22,20 @@ const routes: Routes = [
     canActivate: [ProductIdGuard]
   },
   { path: 'cart', component: CartComponent, canActivate: [CartGuard] },
-  { path: 'checkout', component: CheckoutComponent, canActivate: [CartGuard] },
+  {
+    path: 'checkout',
+    component: CheckoutComponent,
+    canActivate: [CartGuard, AuthGuard]
+  },
   {
     path: 'confirmation',
     component: ConfirmationComponent,
-    canActivate: [CartGuard]
+    canActivate: [CartGuard, AuthGuard]
   },
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
   { path: 'user', component: UserComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'error', component: ErrorComponent },
   { path: '**', redirectTo: 'error' }
 ];

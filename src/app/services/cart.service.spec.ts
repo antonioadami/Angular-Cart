@@ -1,17 +1,14 @@
 import { TestBed } from '@angular/core/testing';
+import { productData } from '../mock/products';
 import { IITem } from '../models/IItem';
-import { IProduct } from '../models/IProduct';
 import { CartService } from './cart.service';
-import { ProductsService } from './products.service';
 
 describe('CartService', () => {
   let cartService: CartService;
-  let productService: ProductsService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
     cartService = new CartService();
-    productService = new ProductsService();
   });
 
   it('should be created', () => {
@@ -19,9 +16,8 @@ describe('CartService', () => {
   });
 
   it('should add a product to the cart', () => {
-    const product = productService.getProductById(1) as IProduct;
     const item: IITem = {
-      product,
+      product: productData,
       amount: 1,
       totalPrice: 3431.6
     };
@@ -35,9 +31,8 @@ describe('CartService', () => {
 
   it('should remove a product from the cart', () => {
     const id = 1;
-    const product = productService.getProductById(id) as IProduct;
     const item: IITem = {
-      product,
+      product: productData,
       amount: 1,
       totalPrice: 3431.6
     };
@@ -52,9 +47,8 @@ describe('CartService', () => {
 
   it('should change the amount of a product from the cart', () => {
     const id = 1;
-    const product = productService.getProductById(id) as IProduct;
     const item: IITem = {
-      product,
+      product: productData,
       amount: 1,
       totalPrice: 3431.6
     };
@@ -68,10 +62,8 @@ describe('CartService', () => {
   });
 
   it('should change the amount of a product when added the same product', () => {
-    const id = 1;
-    const product = productService.getProductById(id) as IProduct;
     const item: IITem = {
-      product,
+      product: productData,
       amount: 1,
       totalPrice: 3431.6
     };

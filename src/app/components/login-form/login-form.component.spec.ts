@@ -1,9 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ComponentsModule } from '../components.module';
 import { LoginFormComponent } from './login-form.component';
 import { AuthService } from 'src/app/services/auth.service';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppModule } from 'src/app/app.module';
 
 describe('LoginFormComponent', () => {
   let component: LoginFormComponent;
@@ -13,7 +12,7 @@ describe('LoginFormComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [LoginFormComponent],
-      imports: [ComponentsModule, BrowserAnimationsModule]
+      imports: [AppModule]
     }).compileComponents();
 
     fixture = TestBed.createComponent(LoginFormComponent);
