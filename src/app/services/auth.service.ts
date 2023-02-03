@@ -6,7 +6,9 @@ import { IAuthResponse } from '../models/IAuthResponse';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private authenticatedSubject = new BehaviorSubject<boolean>(false);
+  private authenticatedSubject = new BehaviorSubject<boolean>(
+    this.isAuthenticated()
+  );
 
   constructor(private http: HttpClient) {}
 
@@ -27,33 +29,30 @@ export class AuthService {
     password: string
   ): Promise<boolean> {
     const promise = new Promise<string>((resolve, reject) => {
+      const payload = { username, password };
+      let localStorageKey = 'token';
+      let localStorageKeyId = 'id';
+
       if (username === 'admin') {
-        this.http
-          .post<IAuthResponse>(`${environment.API_URL}/auth/login`, {
-            username: environment.API_ADMIN_USER,
-            password: environment.API_ADMIN_PASSWORD
-          })
-          .subscribe((ans) => {
-            localStorage.setItem('adminToken', ans.token);
-            resolve(ans.token);
-          });
-      } else {
-        this.http
-          .post<IAuthResponse>(`${environment.API_URL}/auth/login`, {
-            username,
-            password
-          })
-          .subscribe(
-            (ans) => {
-              localStorage.setItem('token', ans.token);
-              this.authenticatedSubject.next(true);
-              resolve(ans.token);
-            },
-            (err) => {
-              reject(err);
-            }
-          );
+        payload.username = environment.API_ADMIN_USER;
+        payload.password = environment.API_ADMIN_PASSWORD;
+        localStorageKey = 'adminToken';
+        localStorageKeyId = 'adminId';
       }
+
+      this.http
+        .post<IAuthResponse>(`${environment.API_URL}/auth/login`, payload)
+        .subscribe(
+          (ans) => {
+            localStorage.setItem(localStorageKey, ans.token);
+            localStorage.setItem(localStorageKeyId, ans.id.toString());
+            this.authenticatedSubject.next(true);
+            resolve(ans.token);
+          },
+          (err) => {
+            reject(err);
+          }
+        );
     });
 
     try {
@@ -66,10 +65,12 @@ export class AuthService {
 
   public Logout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('id');
     this.authenticatedSubject.next(false);
   }
 
   public LogoutAdmin() {
     localStorage.removeItem('adminToken');
+    localStorage.removeItem('adminId');
   }
 }

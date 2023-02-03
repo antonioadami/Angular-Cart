@@ -1,0 +1,73 @@
+.title {
+  color: #0083ca;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 48px;
+  margin: 0;
+}
+
+.logout-icon {
+  margin-left: 32px;
+  color: red;
+  cursor: pointer;
+}
+
+.address-title{
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 48px;
+}
+
+.user-container{
+  margin-top: 16px;
+
+  border: 1px solid #c1c1c1;
+  border-radius: 16px;
+
+  padding: 32px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  mat-form-field {
+    width: 100%;
+  }
+
+  ::ng-deep .mat-mdc-checkbox-checked.mat-accent .mdc-form-field .mdc-checkbox {
+    .mdc-checkbox__ripple {
+      opacity: 0.03 !important;
+      background-color: #0086ff!important;
+    }
+
+    .mdc-checkbox__background {
+      border-color: #0086ff;
+      background-color: #0086ff;
+    }
+  }
+
+}
+
+.address-container {
+  display: flex;
+
+  div {
+    width: 50%;
+
+    &:nth-child(1) {
+      margin-right: 16px;
+    }
+  }
+}
+
+.submit-container {
+  width: 100%;
+  margin-top: 16px;
+
+  ::ng-deep .mdc-button{
+    width: 100%;
+    background-color: #0086ff;
+    color: #fff;
+  }
+}

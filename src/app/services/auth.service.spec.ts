@@ -5,14 +5,14 @@ import {
 } from '@angular/common/http/testing';
 
 import { AuthService } from './auth.service';
-import { environment } from 'src/environments/environment';
-import { authResponseData } from '../mock/auth';
+// import { environment } from 'src/environments/environment';
+// import { authResponseData } from '../mock/auth';
 import { mockLocalStorage } from '../mock/localStorage';
 
 describe('AuthService', () => {
   let service: AuthService;
   let httpController: HttpTestingController;
-  const API_URL = `${environment.API_URL}/auth/login`;
+  // const API_URL = `${environment.API_URL}/auth/login`;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -49,10 +49,10 @@ describe('AuthService', () => {
     expect(auth).toBe(false);
   });
 
-  // it('should log user in', async () => {
+  // it('should log user in', () => {
   //   service.Authenticate('test@test.com', 'Password1234@');
 
-  //   const auth = await service.isAuthenticated();
+  //   const auth = service.isAuthenticated();
 
   //   const http = httpController.expectOne(API_URL);
 
@@ -64,10 +64,10 @@ describe('AuthService', () => {
   //   expect(auth).toBe(true);
   // });
 
-  // it('should log admin in', async () => {
+  // it('should log admin in', () => {
   //   service.Authenticate('admin', 'admin');
 
-  //   const auth = await service.isAdminAuthenticated();
+  //   const auth = service.isAdminAuthenticated();
 
   //   const http = httpController.expectOne(API_URL);
 

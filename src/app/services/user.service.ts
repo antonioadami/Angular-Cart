@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ICreateUser } from '../models/ICreateUser';
+import { IUser } from '../models/IUser';
 import { IUsersResponse } from '../models/IUsersResponse';
 
 @Injectable({ providedIn: 'root' })
@@ -15,7 +16,12 @@ export class UserService {
       username: user.email
     });
   }
+
   public getUsers(): Observable<IUsersResponse> {
     return this.http.get<IUsersResponse>(`${environment.API_URL}/users`);
+  }
+
+  public getUserById(id: number): Observable<IUser> {
+    return this.http.get<IUser>(`${environment.API_URL}/users/${id}`);
   }
 }

@@ -15,6 +15,11 @@ import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
 import { RegisterComponent } from './register/register.component';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -35,7 +40,13 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     ComponentsModule,
     RouterModule,
     MatButtonModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatCheckboxModule,
+    MatInputModule,
+    FontAwesomeModule
   ],
   exports: []
 })
