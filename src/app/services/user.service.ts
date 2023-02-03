@@ -24,4 +24,8 @@ export class UserService {
   public getUserById(id: number): Observable<IUser> {
     return this.http.get<IUser>(`${environment.API_URL}/users/${id}`);
   }
+
+  public updateUser(id: number, data: any) {
+    return this.http.put<IUser>(`${environment.API_URL}/users/${id}`, data);
+  }
 }

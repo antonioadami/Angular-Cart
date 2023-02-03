@@ -13,6 +13,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UserComponent implements OnInit {
   user: IUser;
+  id: number;
 
   faRightFromBracket = faRightFromBracket;
 
@@ -39,29 +40,38 @@ export class UserComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.userService
-      .getUserById(parseInt(localStorage.getItem('id') as string))
-      .subscribe((u) => {
-        this.user = u;
-        this.formGroup.setValue({
-          firstName: u.firstName,
-          email: u.email,
-          newsletter: false,
-          address: {
-            cep: u.address.postalCode,
-            city: u.address.city,
-            complement: '',
-            neighborhood: '',
-            number: '',
-            state: u.address.state,
-            street: u.address.address
-          }
-        });
+    this.id = parseInt(localStorage.getItem('id') as string);
+    this.getUser();
+  }
+
+  private getUser() {
+    this.userService.getUserById(this.id).subscribe((u) => {
+      this.user = u;
+      this.formGroup.setValue({
+        firstName: u.firstName,
+        email: u.email,
+        newsletter: false,
+        address: {
+          cep: u.address.postalCode,
+          city: u.address.city,
+          complement: '',
+          neighborhood: '',
+          number: '',
+          state: u.address.state,
+          street: u.address.address
+        }
       });
+    });
   }
 
   Validate() {
-    console.log('validate');
+    if (this.formGroup.valid) {
+      const data = this.formGroup.getRawValue();
+
+      this.userService.updateUser(this.id, data).subscribe(() => {
+        this.getUser();
+      });
+    }
   }
 
   Logout() {
